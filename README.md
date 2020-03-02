@@ -1,5 +1,6 @@
 # Eduality
-A community driven page sorted by a fair algorithm
+A community driven page sorted by a fair algorithm 
+(Introduction to Software Engineering, Project)
 
 
 - Team Name: Eduality S.A
