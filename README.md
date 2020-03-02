@@ -2,8 +2,7 @@
 <img class="center-block" alt="Eduality" width="720vw" src="https://raw.githubusercontent.com/memoriasIT/Eduality/master/docs/static/img/banner.png">
 </h1>
 
-<img alt="GitHub" src="https://img.shields.io/github/license/memoriasIT/Eduality?style=flat-square">
-<img alt="GitHub issues" src="https://img.shields.io/github/issues-raw/memoriasIT/Eduality?style=flat-square">
+<img alt="GitHub" src="https://img.shields.io/github/license/memoriasIT/Eduality?style=flat-square">  <img alt="GitHub issues" src="https://img.shields.io/github/issues-raw/memoriasIT/Eduality?style=flat-square">
 
 _A community driven page sorted by a fair algorithm._
 
