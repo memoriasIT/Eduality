@@ -1,6 +1,17 @@
-# Eduality
-A community driven page sorted by a fair algorithm 
+<h1 align="center">
+<img class="center-block" alt="Eduality" width="720vw" src="https://raw.githubusercontent.com/memoriasIT/Eduality/master/docs/static/img/banner.png">
+</h1>
+
+_A community driven page sorted by a fair algorithm._
+
 (Introduction to Software Engineering, Project)
+
+
+
+
+
+
+
 
 
 - Team Name: Eduality S.A
