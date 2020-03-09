@@ -43,3 +43,13 @@ Liana Șacu: Design and requirements
 - Project title: Eduality
 
 - Project Description: A community driven page where you can bring valuable information all in one place using a fair algorithm.
+
+
+
+Resources:
+THREAD POOLED SERVER:
+https://github.com/lukebro/httputil/blob/master/lib/src/com/github/lukebro/httputil/HttpRequest.java
+http://tutorials.jenkov.com/java-multithreaded-servers/thread-pooled-server.html
+
+SESSION MANAGEMENT:
+https://www.studytonight.com/servlet/storing-session-using-cookies.php
