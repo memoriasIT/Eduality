@@ -42,8 +42,7 @@ Liana Șacu: Design and requirements
 
 - Project title: Eduality
 
-- Project Description: A community driven page where you can bring valuable information all in one place using a fair algorithm.
-
+- Project Description: Eduality is a platform where content creators pick a domain (from a wide variety of categories like science, photography, sports) and share papers, videos, podcasts in order to get points/recognition from other users for their content. The content is sorted by a fair algorithm. For our top users we also provide "rewards" like the oportunity to be published in a real magazine, that way we motivate users to post content.
 
 
 Resources:
