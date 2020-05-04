@@ -19,18 +19,19 @@ public class MySQLAccess {
     {
         try {
             // This will load the MySQL driver, each DB has its own driver
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             // Setup the connection with the DB
             connect = DriverManager
-                    .getConnection("jdbc:mysql://localhost/Eduality?"
+                    .getConnection("jdbc:mysql://localhost:3306/eduality?"
                             + "user=root&password=12345");
 
             // Statements allow to issue SQL queries to the database
             statement = connect.createStatement();
             // Result set get the result of the SQL query
             resultSet = statement
-                    .executeQuery("select * from Eduality.comment");
+                    .executeQuery("select * from eduality.user");
             writeResultSet(resultSet);
+            
             /*
             // PreparedStatements can use variables and are more efficient
             preparedStatement = connect
@@ -67,6 +68,7 @@ public class MySQLAccess {
 
         } catch (Exception e) {
             throw e;
+            
         } finally {
             close();
         }
