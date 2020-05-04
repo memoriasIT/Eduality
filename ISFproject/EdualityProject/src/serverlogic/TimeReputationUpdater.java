@@ -2,10 +2,13 @@ package serverlogic;
 import java.util.*;
 
 public class TimeReputationUpdater extends Thread {
-	
+	ContentIterator allContent;
+	EdualityLogic eduality;
 	//I could pass allContent as a parameter and also the iterator
-	public TimeReputationUpdater() {
-		
+	
+	public TimeReputationUpdater(ContentIterator allContent) {
+		this.allContent = allContent;
+		eduality = new EdualityLogic();
 	}
 	
 	public void run() {
@@ -21,10 +24,10 @@ public class TimeReputationUpdater extends Thread {
 		    	
 		    	
 		    	
-				 while(allContent.hasNext()){
+				 while(allContent.hasNextItem()){
 				 	//for every content, we have to apply the faitAlgorith(content);
-				 	fairAlgorithm(allContent.next());
-				 
+				 	eduality.fairAlgorithm(allContent.nextItem());
+				 	
 				 }
 				 
 				 
