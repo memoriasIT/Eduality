@@ -13,19 +13,21 @@ public class ContentAggregate extends AggregateBase {
 		
 		return new ContentIterator(this);	
 	}
-	
-	public void addItem(Content content) {
-		//CAUTION I'm not doing addItem() I am using 
-		// the add() from the structure that I've choosen
-		allContent.add(content);
-	}
-	
+		
 	public int count() {
 		return allContent.size();
 	}
 	
 	public Content obtain(int position) {
 		return allContent.get(position);
+	}
+
+	@Override
+	public void addItem(Object content) {
+		//CAUTION I'm not doing addItem() I am using 
+		// the add() from the structure that I've choosen
+		
+		allContent.add((Content) content);
 	}
 	
 	
