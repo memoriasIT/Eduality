@@ -6,7 +6,7 @@ import java.sql.Statement;
 import java.util.*;
 
 public class TimeReputationUpdater extends Thread {
-	IteratorBase allContent;
+	IteratorBase allContent; 
 	EdualityLogic eduality;
 	
 	
@@ -19,7 +19,7 @@ public class TimeReputationUpdater extends Thread {
     	AggregateBase myAggregateContent = new ContentAggregate();
     	
     	//Then I have to create the iterator
-    	IteratorBase myIteratorContent = myAggregateContent.createIterator();
+    	allContent = myAggregateContent.createIterator();
     
     	 
 		Timer timer = new Timer ();
@@ -32,8 +32,8 @@ public class TimeReputationUpdater extends Thread {
 		    	// sql sentences are not well defined yet is only the idea
 		    	String sqlContent = "SELECT title, body " +
 		                "FROM Content";
-		        
-		    	
+		   
+		         	
 		    	try (Connection conn = MySQLJDBCUtil.getConnection();
 		                 Statement stmt  = conn.createStatement();
 		                 ResultSet rs    = stmt.executeQuery(sql)) {
@@ -52,7 +52,7 @@ public class TimeReputationUpdater extends Thread {
 		                            rs.getString("email"));
 		                    
 		                    //Content objects with the values obtain from the database
-		                    //myAggregateContent.add(  createContent(idContent,title,body,topic,votes,uploadDate,idUser,hasAward) );
+		                    //myAggregateContent.addItem(  createContent(idContent,title,body,topic,votes,uploadDate,idUser,hasAward) );
 		                }
 		            
 		            } catch (SQLException ex) {
@@ -61,10 +61,13 @@ public class TimeReputationUpdater extends Thread {
 		    	 //---------------------------------------------------------------------
 		    	
 		    	//Applying the fairAlgorithm to every content we just fetched from the database
-				 while(allContent.hasNextItem()){
+		    	
+		    	//first condition works when the list is of only one item!!!
+				 while(myAggregateContent.count()==1 || allContent.hasNextItem()){
 				 	//for every content, we have to apply the fairAlgorithm(content);
 	 				 
-				 	eduality.fairAlgorithm((Content) allContent.nextItem());
+				 	eduality.fairAlgorithm((Content) allContent.currentItem());
+				 	allContent.nextItem();
 				 }
 				 
 				 

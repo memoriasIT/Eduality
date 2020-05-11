@@ -40,6 +40,9 @@ public class ContentIterator extends IteratorBase {
     	
     	return position+1 < contentAggregate.count();
     }
+    //1 item then it should be false, 
+    //Im in 6 and the list have 7 it returns true
+    
 	
 	
 }

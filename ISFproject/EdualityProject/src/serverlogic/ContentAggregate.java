@@ -6,7 +6,7 @@ public class ContentAggregate extends AggregateBase {
 
 	
 	//I create the structure for my content
-	private ArrayList<Content> allContent = new ArrayList<>();
+	private ArrayList<Content> myListOfContent = new ArrayList<>();
 	
 	
 	public ContentIterator createIterator() {
@@ -15,11 +15,11 @@ public class ContentAggregate extends AggregateBase {
 	}
 		
 	public int count() {
-		return allContent.size();
+		return myListOfContent.size();
 	}
 	
 	public Content obtain(int position) {
-		return allContent.get(position);
+		return myListOfContent.get(position);
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public class ContentAggregate extends AggregateBase {
 		//CAUTION I'm not doing addItem() I am using 
 		// the add() from the structure that I've choosen
 		
-		allContent.add((Content) content);
+		myListOfContent.add((Content) content);
 	}
 	
 	

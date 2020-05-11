@@ -15,17 +15,17 @@ public class EdualityLogic {
 	
 		//We take into account different things:
 		
-		//We value more 
-		value= content.getPartialVotes()*0.7 + content.getTotalVotes()*0.3;
+		//We value more partial votes than total votes 
+		value= content.getPartialVotes()*partialMultiplier + content.getTotalVotes()*totalMultiplier;
 		
 		if(!content.getTopic().equalsIgnoreCase("all")) {
 			value=value*subtopicMultiplier;
 		}
 			
-		if(content.getHasAward()) {
-			value=value*awardMultiplier;
-		}
-	
+		//Everytime that we get a new award the value is also updated but it shouldn't
+		//be done here because it is only applied when we get a new Award for a content
+		//and not every 60 min (which is the period that this fairAlgorithm executes)
+		
 		content.updateReputation(value);
 		
 	}
