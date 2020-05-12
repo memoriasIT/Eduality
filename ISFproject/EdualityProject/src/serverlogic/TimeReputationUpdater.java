@@ -73,7 +73,7 @@ public class TimeReputationUpdater extends Thread {
 				 
 				 //Update the database 
 				 
-				 while(allContent.hasNextItem()) {
+				 while(myAggregateContent.count()==1 || allContent.hasNextItem()) {
 					 ((Content)allContent.currentItem()).resetPartialVotes();
 					
 					
