@@ -30,6 +30,9 @@ public class ContentAggregate extends AggregateBase {
 		myListOfContent.add((Content) content);
 	}
 	
-	
+	public void addItem(Object item) {
+		
+		
+	}
 	
 }

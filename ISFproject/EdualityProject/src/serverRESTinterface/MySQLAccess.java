@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class MySQLAccess {
@@ -104,6 +105,26 @@ public class MySQLAccess {
            
         }
     }
+    
+    private void convertResultSet(ResultSet resultSet) throws SQLException {
+        // ResultSet is initially before the first data set
+        while (resultSet.next()) {
+            // It is possible to get the columns via name
+            // also possible to get the columns via the column number
+            // which starts at 1
+            // e.g. resultSet.getSTring(2);
+        	 double reputation = resultSet.getDouble("reputation");
+        	 int totalVotes = resultSet.getInt("totalVotes");
+        	 int partialVotes = resultSet.getInt("partialVotes");
+        	 String title = resultSet.getString("title");
+        	 String body = resultSet.getString("body");
+        	 String topic = resultSet.getString("topic");
+        	 String uploadDate = resultSet.getString("uploadDate");
+        	 
+           
+        }
+    }
+
 
     // You need to close the resultSet
     private void close() {
@@ -124,6 +145,31 @@ public class MySQLAccess {
         }
     }
 	
+	public void getContent() throws Exception
+	{
+		try {
+			 // This will load the MySQL driver, each DB has its own driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            // Setup the connection with the DB
+            connect = DriverManager
+                    .getConnection("jdbc:mysql://localhost:3306/eduality?"
+                            + "user=root&password=12345");
+
+            // Statements allow to issue SQL queries to the database
+            statement = connect.createStatement();
+            // Result set get the result of the SQL query
+            resultSet = statement
+                    .executeQuery("select * from eduality.content");
+            convertResultSet(resultSet);
+		}
+		catch (Exception e) {
+            throw e;
+            
+        } finally {
+            close();
+        }
+		
 	
+	}
 	
 }
