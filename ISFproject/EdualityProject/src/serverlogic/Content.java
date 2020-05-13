@@ -1,7 +1,8 @@
 package serverlogic;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList; 
+import java.util.ArrayList;
+import java.util.Date; 
 
 
 public class Content {
@@ -12,7 +13,7 @@ public class Content {
 	private String title;
 	private String body;
 	private String topic;
-	private long uploadDate;
+	private Date uploadDate;
 	private int idContent;
 	private int idUser;
 	private boolean hasAward;
@@ -42,7 +43,7 @@ public class Content {
 		//LocalDateTime now = LocalDateTime.now();
 		/// uploadTime = now.getTime();
 		
-		this.uploadDate = uploadDate;  //dtf.format(now);
+		this.uploadDate = new Date(uploadDate);  //dtf.format(now);
 		this.idUser = idUser; 
 		this.hasAward=hasAward;
 		listAwards=new ArrayList<Award>();
@@ -68,7 +69,7 @@ public class Content {
 	public int getPartialVotes() {
 		return partialVotes;
 	}
-
+	
 	public void upvote() {		
 		totalVotes++;
 		partialVotes++;

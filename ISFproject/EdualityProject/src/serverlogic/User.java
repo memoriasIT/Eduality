@@ -5,9 +5,9 @@ public class User {
     String name;
     String password;
     boolean expert;
-    int goldamount;
-    int silveramount;
-    int copperamount;
+    int goldAmount;
+    int silverAmount;
+    int copperAmount;
 
     public User(String e,String n,String p,boolean b) {
         email=e;
@@ -24,17 +24,17 @@ public class User {
         if(expert=false) {
             System.out.println("User is not an expert");
         }else {
-            System.out.println("The user has "+goldamount+" gold awards");
-            System.out.println("The user has "+silveramount+" gold awards");
-            System.out.println("The user has "+copperamount+" copper awards");
+            System.out.println("The user has "+goldAmount+" gold awards");
+            System.out.println("The user has "+silverAmount+" gold awards");
+            System.out.println("The user has "+copperAmount+" copper awards");
         }
     }
 
-    public String getemail() {
+    public String getEmail() {
         return email;
     }
 
-    public String getname() {
+    public String getName() {
         return name;
     }
 
