@@ -1,6 +1,7 @@
 package es.uma.ingsoftware.eduality.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,23 @@ public class ContentService {
 	public List<Content> getAll(){
 		
 		return cr.findAll();
+	}
+
+	public void save(Content c) {
+		
+		cr.saveAndFlush(c);
+		
+	}
+
+	public void delete(Integer idContent) {
+		
+		cr.deleteById(idContent);
+		
+	}
+
+	public Content getById(Integer idContent) {
+		
+		return cr.getOne(idContent);
 	}
 	
 	

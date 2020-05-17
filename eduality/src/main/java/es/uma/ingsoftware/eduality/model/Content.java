@@ -21,7 +21,7 @@ public class Content {
 	private String title;
 	private String body;
 	private String topic;
-	private long uploadDate;
+	private String uploadDate;
 	
 	
 	@Id
@@ -95,10 +95,10 @@ public class Content {
 	public void setTopic(String topic) {
 		this.topic = topic;
 	}
-	public long getUploadDate() {
+	public String getUploadDate() {
 		return uploadDate;
 	}
-	public void setUploadDate(long uploadDate) {
+	public void setUploadDate(String uploadDate) {
 		this.uploadDate = uploadDate;
 	}
 	public int getIdContent() {
