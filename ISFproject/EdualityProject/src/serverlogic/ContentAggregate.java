@@ -25,7 +25,7 @@ public class ContentAggregate extends AggregateBase {
 	@Override
 	public void addItem(Object content) {
 		//CAUTION I'm not doing addItem() I am using 
-		// the add() from the structure that I've choosen
+		// the add() from the structure that I've chosen
 		
 		myListOfContent.add((Content) content);
 	}

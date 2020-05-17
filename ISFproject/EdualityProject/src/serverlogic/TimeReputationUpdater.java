@@ -1,6 +1,8 @@
 package serverlogic;
 import serverRESTinterface.MySQLAccess;
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -10,6 +12,9 @@ public class TimeReputationUpdater extends Thread {
 	IteratorBase allContent; 
 	EdualityLogic eduality;
 	MySQLAccess dao = new MySQLAccess();
+	private Connection connect = null;
+    private Statement statement = null;
+    private ResultSet resultSet = null;
 	
 	
 	public TimeReputationUpdater() {
@@ -31,24 +36,36 @@ public class TimeReputationUpdater extends Thread {
 		    public void run () {
 		        
 		    		
-		    		ResultSet content;
+		    		
 					try {
 						
+						 // This will load the MySQL driver, each DB has its own driver
+			            Class.forName("com.mysql.cj.jdbc.Driver");
+			            // Setup the connection with the DB
+			            connect = DriverManager
+			                    .getConnection("jdbc:mysql://localhost:3306/eduality?"
+			                            + "user=root&password=12345");
+
+			            // Statements allow to issue SQL queries to the database
+			            statement = connect.createStatement(ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_UPDATABLE);
+			            // Result set get the result of the SQL query
+			            resultSet = statement
+			                    .executeQuery("select * from eduality.content");
 						
-						content = dao.getContent();
 						
-						while (content.next()) {
+						
+						while (resultSet.next()) {
 		                	
-							 String title = content.getString("title");
-				        	 String body = content.getString("body");
-				        	 String topic = content.getString("topic");
-				        	 long uploadDate = content.getLong("uploadDate");
-				        	 int idUser = content.getInt("idUser");
-				        	 boolean hasAward = content.getBoolean("hasAward");
-				        	 int votes = content.getInt("votes");
-				        	 int idContent = content.getInt("idContent");
-				        	 int partialVotes = content.getInt("partialVotes");
-				        	 int totalVotes = content.getInt("totalVotes");
+							 String title = resultSet.getString("title");
+				        	 String body = resultSet.getString("body");
+				        	 String topic = resultSet.getString("topic");
+				        	 long uploadDate = resultSet.getLong("uploadDate");
+				        	 int idUser = resultSet.getInt("idUser");
+				        	 boolean hasAward = resultSet.getBoolean("hasAward");
+				        	 int votes = resultSet.getInt("votes");
+				        	 int idContent = resultSet.getInt("idContent");
+				        	 int partialVotes = resultSet.getInt("partialVotes");
+				        	 int totalVotes = resultSet.getInt("totalVotes");
 				        	 
 				        	 
 				        	 //Content objects with the values obtain from the database
@@ -58,7 +75,8 @@ public class TimeReputationUpdater extends Thread {
 				        	 
 			
 				        	//Update the database 
-				        	content.updateDouble("reputation", content1.getReputation());
+				        	resultSet.updateDouble("reputation", content1.getReputation());
+				        	resultSet.updateRow();
 				        	
 				        	 
 		                   
@@ -72,6 +90,23 @@ public class TimeReputationUpdater extends Thread {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} 
+					finally {
+						 try {
+					            if (resultSet != null) {
+					                resultSet.close();
+					            }
+
+					            if (statement != null) {
+					                statement.close();
+					            }
+
+					            if (connect != null) {
+					                connect.close();
+					            }
+					        } catch (Exception e) {
+
+					        }
+					}
 		    		
 		                
 		           

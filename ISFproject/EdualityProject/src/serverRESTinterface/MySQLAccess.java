@@ -147,32 +147,7 @@ public class MySQLAccess {
         }
     }
 	
-	public ResultSet getContent() throws Exception
-	{
-		try {
-			 // This will load the MySQL driver, each DB has its own driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            // Setup the connection with the DB
-            connect = DriverManager
-                    .getConnection("jdbc:mysql://localhost:3306/eduality?"
-                            + "user=root&password=12345");
-
-            // Statements allow to issue SQL queries to the database
-            statement = connect.createStatement(ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_UPDATABLE);
-            // Result set get the result of the SQL query
-            resultSet = statement
-                    .executeQuery("select * from eduality.content");
-            return resultSet;
-		}
-		catch (Exception e) {
-            throw e;
-            
-        } finally {
-            close();
-        }
-		
 	
-	}
 	
 	
 }
