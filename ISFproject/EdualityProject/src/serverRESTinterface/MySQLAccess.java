@@ -158,7 +158,7 @@ public class MySQLAccess {
                             + "user=root&password=12345");
 
             // Statements allow to issue SQL queries to the database
-            statement = connect.createStatement();
+            statement = connect.createStatement(ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_UPDATABLE);
             // Result set get the result of the SQL query
             resultSet = statement
                     .executeQuery("select * from eduality.content");
