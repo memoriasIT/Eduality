@@ -56,7 +56,10 @@ public class TimeReputationUpdater extends Thread {
 				        	
 				        	eduality.fairAlgorithm(content1); //Applying the fairAlgorithm to every content we just fetched from the database
 				        	 
-				        	dao.updateReputation(content1.getReputation());  //Update the database 
+			
+				        	//Update the database 
+				        	content.updateDouble("reputation", content1.getReputation());
+				        	
 				        	 
 		                   
 		                    
