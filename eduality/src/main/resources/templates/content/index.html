@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Content List</title>
+</head>
+<body>
+	<h1>Content List</h1>
+	
+	<table>
+		<thead>
+			<tr><td>Id</td><td>Title</td><td>Body</td></tr>
+		</thead>
+		<tbody>
+			<tr th:each = "c : ${contentList}">
+				<td th:text="${c.idContent}"></td>
+				<td th:text="${c.title}"></td>
+				<td th:text="${c.body}"></td>
+			</tr>
+		</tbody>
+	
+	</table>
+</body>
+</html>

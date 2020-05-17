@@ -15,16 +15,16 @@ public class User {
 	
 	@Id
 	@GeneratedValue
-	private int idUser;
+	private Integer idUser;
 	
 	
     private String email;
     private String name;
     private String password;
     private boolean expert;
-    private int goldamount;
-    private int silveramount;
-    private int copperamount;
+    private Integer goldamount;
+    private Integer silveramount;
+    private Integer copperamount;
     
     @OneToMany (mappedBy = "user")
     private List<Content> contentList;

@@ -16,8 +16,8 @@ import es.uma.ingsoftware.eduality.model.Award;
 public class Content {
 	
 	private double reputation;
-	private int totalVotes;
-	private int partialVotes;
+	private Integer totalVotes;
+	private Integer partialVotes;
 	private String title;
 	private String body;
 	private String topic;
@@ -26,7 +26,7 @@ public class Content {
 	
 	@Id
 	@GeneratedValue
-	private int idContent;
+	private Integer idContent;
 	
 	@ManyToOne
 	private User user;
@@ -40,6 +40,12 @@ public class Content {
 	public Content()
 	{
 		
+	}
+	
+	public Content(String title, String body)
+	{
+		this.title = title;
+		this.body = body;
 	}
 	
 	
@@ -62,13 +68,13 @@ public class Content {
 	public int getTotalVotes() {
 		return totalVotes;
 	}
-	public void setTotalVotes(int totalVotes) {
+	public void setTotalVotes(Integer totalVotes) {
 		this.totalVotes = totalVotes;
 	}
 	public int getPartialVotes() {
 		return partialVotes;
 	}
-	public void setPartialVotes(int partialVotes) {
+	public void setPartialVotes(Integer partialVotes) {
 		this.partialVotes = partialVotes;
 	}
 	public String getTitle() {
@@ -98,7 +104,7 @@ public class Content {
 	public int getIdContent() {
 		return idContent;
 	}
-	public void setIdContent(int idContent) {
+	public void setIdContent(Integer idContent) {
 		this.idContent = idContent;
 	}
 	
