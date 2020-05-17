@@ -1,4 +1,5 @@
 package serverlogic;
+import serverRESTinterface.MySQLAccess;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,6 +9,7 @@ import java.util.*;
 public class TimeReputationUpdater extends Thread {
 	IteratorBase allContent; 
 	EdualityLogic eduality;
+	MySQLAccess dao = new MySQLAccess();
 	
 	
 	public TimeReputationUpdater() {
@@ -27,68 +29,62 @@ public class TimeReputationUpdater extends Thread {
 		TimerTask reputationUpdate= new TimerTask(){
 		    @Override
 		    public void run () {
-		        //GET THE CONTENT FROM THE DATABASE AND CREATE THE OBJECTS
-		    	//---------------------------------------------------------------------
-		    	// sql sentences are not well defined yet is only the idea
-		    	String sqlContent = "SELECT title, body " +
-		                "FROM Content";
-		   
-		         	
-		    	try (Connection conn = MySQLJDBCUtil.getConnection();
-		                 Statement stmt  = conn.createStatement();
-		                 ResultSet rs    = stmt.executeQuery(sql)) {
-
-		                // loop through the result set
-		                while (rs.next()) {
-		                	/**
-		                	 String sqlTopic = "SELECT name " +
-		     		                "FROM Topic";
-		     		        // SELECT name FROM Topic
-		     		        // WHERE IDTopic=currentTopic; should be inside the while
-		                	**/
+		        
+		    		
+		    		ResultSet content;
+					try {
+						
+						
+						content = dao.getContent();
+						
+						while (content.next()) {
 		                	
-		                    System.out.println(rs.getString("first_name") + "\t" +
-		                            rs.getString("last_name")  + "\t" +
-		                            rs.getString("email"));
+							 String title = content.getString("title");
+				        	 String body = content.getString("body");
+				        	 String topic = content.getString("topic");
+				        	 long uploadDate = content.getLong("uploadDate");
+				        	 int idUser = content.getInt("idUser");
+				        	 boolean hasAward = content.getBoolean("hasAward");
+				        	 int votes = content.getInt("votes");
+				        	 int idContent = content.getInt("idContent");
+				        	 int partialVotes = content.getInt("partialVotes");
+				        	 int totalVotes = content.getInt("totalVotes");
+				        	 
+				        	 
+				        	 //Content objects with the values obtain from the database
+				        	Content content1 = new Content(idContent, title, body, topic, idContent, uploadDate, idUser, hasAward, totalVotes, partialVotes);
+				        	
+				        	eduality.fairAlgorithm(content1); //Applying the fairAlgorithm to every content we just fetched from the database
+				        	 
+				        	dao.updateReputation(content1.getReputation());  //Update the database 
+				        	 
+		                   
 		                    
-		                    //Content objects with the values obtain from the database
-		                    //myAggregateContent.addItem(  createContent(idContent,title,body,topic,votes,uploadDate,idUser,hasAward) );
 		                }
 		            
-		            } catch (SQLException ex) {
-		                System.out.println(ex.getMessage());
-		            }
+						
+						
+						
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} 
+		    		
+		                
+		           
 		    	 //---------------------------------------------------------------------
 		    	
-		    	//Applying the fairAlgorithm to every content we just fetched from the database
-		    	
-		    	//first condition works when the list is of only one item!!!
-				 while(myAggregateContent.count()==1 || allContent.hasNextItem()){
-				 	//for every content, we have to apply the fairAlgorithm(content);
-	 				 
-				 	eduality.fairAlgorithm((Content) allContent.currentItem());
-				 	allContent.nextItem();
-				 }
-				 
-				 
-				 //Update the database 
-				 
-				 while(myAggregateContent.count()==1 || allContent.hasNextItem()) {
-					 ((Content)allContent.currentItem()).resetPartialVotes();
 					
-					
-					//Update the database here!
-					//
-					 
-				 }
-				 //Only the reputation field should be updated
-				 //IMPORTANT!!! reputation is NOT the same that upvotes it must be a different field
-		    	
+		
+		
 		    }
-		};
+					
+					
 		
-		
-		timer.schedule (reputationUpdate, 60, 1000*60);
+			};
+					timer.schedule (reputationUpdate, 60, 1000*60);
+		}
 	}
 	
-}
+		
+

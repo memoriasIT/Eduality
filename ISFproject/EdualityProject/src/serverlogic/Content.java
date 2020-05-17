@@ -19,7 +19,7 @@ public class Content {
 	private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"); 
 	private ArrayList<Award>listAwards;
 	
-	public static Content createContent(int idContent, String title, String body, String topic,int votes,long uploadDate,int idUser,boolean hasAward) {
+	public static Content createContent(int idContent, String title, String body, String topic,int votes,long uploadDate,int idUser,boolean hasAward, int partialVotes, int totalVotes) {
 		if(title.length()<=0 || title.length()>50) {
 			throw new RuntimeException("Invalid title length");
 		}else if(body.length()<=0 || title.length()>1000) {
@@ -28,16 +28,17 @@ public class Content {
 			throw new RuntimeException("Invalid topic length");
 		}
 		
-		return new Content(idContent, title, body, topic, votes, uploadDate,idUser,hasAward);
+		return new Content(idContent, title, body, topic, votes, uploadDate,idUser,hasAward, partialVotes, totalVotes);
 	}
 	
-	private Content(int idContent,String title, String body, String topic,int votes,long uploadDate,int idUser,boolean hasAward) {
+	Content(int idContent,String title, String body, String topic,int votes,long uploadDate,int idUser,boolean hasAward, int partialVotes, int totalVotes) {
 		this.idContent=idContent;
 		this.title=title;
 		this.body=body;
 		this.topic=topic;
 		this.totalVotes=votes;
-		
+		this.partialVotes = partialVotes;
+		this.totalVotes = totalVotes;
 		///What it should be done when creating a new content for the first time
 		//LocalDateTime now = LocalDateTime.now();
 		/// uploadTime = now.getTime();
@@ -87,6 +88,10 @@ public class Content {
 	
 	public void addAward(Award award) {
 		listAwards.add(award);
+	}
+	public double getReputation() {
+		
+		return this.reputation;
 	}
 	
 }
