@@ -1,8 +1,11 @@
 package es.uma.ingsoftware.eduality.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import es.uma.ingsoftware.eduality.model.Award;
 import es.uma.ingsoftware.eduality.model.Content;
@@ -22,7 +25,12 @@ public class User {
     private int goldamount;
     private int silveramount;
     private int copperamount;
-
+    
+    @OneToMany (mappedBy = "user")
+    private List<Content> contentList;
+    
+    
+    public User() {}
     public User(String e,String n,String p,boolean b) {
         email=e;
         name=n;

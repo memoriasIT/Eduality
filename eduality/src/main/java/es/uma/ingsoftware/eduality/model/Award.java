@@ -24,7 +24,7 @@ public class Award {
     private String description;
     private static int awardMultiplier=10;
     
-
+    public Award() {}
     public Award(int t) {
         type=t;
         awardValue=awardMultiplier*type;

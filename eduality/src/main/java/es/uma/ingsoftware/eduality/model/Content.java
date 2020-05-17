@@ -7,6 +7,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import es.uma.ingsoftware.eduality.model.Award;
 
@@ -26,15 +28,13 @@ public class Content {
 	@GeneratedValue
 	private int idContent;
 	
+	@ManyToOne
+	private User user;
 	
-	private int idUser;
+	
 	private boolean hasAward;
 	private Date date;
 	
-	
-	
-
-	//private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"); 
 	private ArrayList<Award>listAwards;
 	
 	public Content()
@@ -101,12 +101,7 @@ public class Content {
 	public void setIdContent(int idContent) {
 		this.idContent = idContent;
 	}
-	public int getIdUser() {
-		return idUser;
-	}
-	public void setIdUser(int idUser) {
-		this.idUser = idUser;
-	}
+	
 	public boolean isHasAward() {
 		return hasAward;
 	}
