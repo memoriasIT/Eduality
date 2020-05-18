@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Content List</title>
+</head>
+<body>
+	<h1>Content List</h1>
+	<a th:href = "@{/content/add}">Create new Content</a>
+	<table>
+		<thead>
+			<tr><td>Id</td><td>Title</td><td>Body</td><td></td></tr>
+		</thead>
+		<tbody>
+			<tr th:each = "c : ${contentList}">
+				<td th:text="${c.idContent}"></td>
+				<td th:text="${c.title}"></td>
+				<td th:text="${c.body}"></td>
+				<td><a th:href = "@{/content/view/{id}(id = ${c.idContent)}}">View</a><a th:href = "@{/content/edit/{id}(id = ${c.idContent)}}">Edit</a><a th:href = "@{/content/delete/{id}(id = ${c.idContent)}}">Delete</a></td>
+			</tr>
+		</tbody>
+	
+	</table>
+</body>
+</html>

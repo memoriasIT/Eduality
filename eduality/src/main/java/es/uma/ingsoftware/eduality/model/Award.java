@@ -13,19 +13,19 @@ public class Award {
 	
 	@Id
 	@GeneratedValue
-	private int idAward;
-    private int type;
+	private Integer idAward;
+    private Integer type;
     
     //type 1=copper
     //type 2=silver
     //type 3=gold
-    private int awardValue;
+    private Integer awardValue;
     private Date dateAchieved;
     private String description;
-    private static int awardMultiplier=10;
+    private static Integer awardMultiplier=10;
     
-
-    public Award(int t) {
+    public Award() {}
+    public Award(Integer t) {
         type=t;
         awardValue=awardMultiplier*type;
     }
