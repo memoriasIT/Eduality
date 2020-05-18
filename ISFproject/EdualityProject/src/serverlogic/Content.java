@@ -23,21 +23,23 @@ public class Content {
 	public static Content createContent(int idContent, String title, String body, String topic,int votes,long uploadDate,int idUser,boolean hasAward) {
 		if(title.length()<=0 || title.length()>50) {
 			throw new RuntimeException("Invalid title length");
-		}else if(body.length()<=0 || title.length()>1000) {
+		}else if(body.length()<=0 || body.length()>1000) {
 			throw new RuntimeException("Invalid body length");
-		}else if(body.length()<=0 || title.length()>20) {
+		}else if(topic.length()<=0 || topic.length()>20) {
 			throw new RuntimeException("Invalid topic length");
 		}
 		
 		return new Content(idContent, title, body, topic, votes, uploadDate,idUser,hasAward);
 	}
 	
+	//TODO WE NEED TO TEST THAT WHEN WE CREATE A CONTENT WITH hasAward true then listAward.getNumberAwards must be > 0
 	private Content(int idContent,String title, String body, String topic,int votes,long uploadDate,int idUser,boolean hasAward) {
 		this.idContent=idContent;
 		this.title=title;
 		this.body=body;
 		this.topic=topic;
 		this.totalVotes=votes;
+		partialVotes=0;
 		
 		///What it should be done when creating a new content for the first time
 		//LocalDateTime now = LocalDateTime.now();
@@ -70,11 +72,13 @@ public class Content {
 		return partialVotes;
 	}
 	
+	//test it
 	public void upvote() {		
 		totalVotes++;
 		partialVotes++;
 	}
 	
+	//test it
 	public void downvote() {
 		if(totalVotes>0) {
 			totalVotes--;
@@ -86,8 +90,16 @@ public class Content {
 		return hasAward;
 	}
 	
+	//test it
 	public void addAward(Award award) {
+		if(!hasAward) {
+			hasAward=true;
+		}
 		listAwards.add(award);
+	}
+	
+	public int getNumberOfAwards() {
+		return listAwards.size();
 	}
 	
 }
