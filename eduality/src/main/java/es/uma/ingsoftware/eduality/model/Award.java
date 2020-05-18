@@ -1,27 +1,39 @@
 package es.uma.ingsoftware.eduality.model;
 
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+import com.sun.istack.NotNull;
 import es.uma.ingsoftware.eduality.model.Content;
 
 @Entity
 public class Award {
-	
+
+
+    // PRIMARY KEY
 	@Id
 	@GeneratedValue
+    @ManyToOne
 	private Integer idAward;
+
+	@Id
+    //type 1=copper; type 2=silver; type 3=gold
     private Integer type;
-    
-    //type 1=copper
-    //type 2=silver
-    //type 3=gold
-    private Integer awardValue;
+
+
+	// OTHER
+    @NotNull
     private Date dateAchieved;
     private String description;
+
+
+    // FOREIGN RELATIONS
+
+
+    // INTERNAL LOGIC
+    private Integer awardValue;
     private static Integer awardMultiplier=10;
     
     public Award() {}

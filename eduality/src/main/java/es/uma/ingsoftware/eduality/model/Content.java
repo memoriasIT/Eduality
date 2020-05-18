@@ -1,42 +1,68 @@
 package es.uma.ingsoftware.eduality.model;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
-import es.uma.ingsoftware.eduality.model.Award;
+import com.sun.istack.NotNull;
 
 @Entity
 public class Content {
-	
-	private double reputation;
-	private Integer totalVotes;
-	private Integer partialVotes;
-	private String title;
-	private String body;
-	private String topic;
-	private String uploadDate;
-	
-	
+
+
+	// PRIMARY KEY
 	@Id
+	@NotNull
 	@GeneratedValue
 	private Integer idContent;
-	
+
+	@Id
+	@NotNull
+	@OneToOne
+	private Integer idPost;
+
+	@Id
+	@NotNull
 	@ManyToOne
-	private User user;
+	private Integer idUser;
+
+	@Id
+	@NotNull
+	@ManyToOne
+	private Integer idTopic;
+
+
+	// OTHER
+	@NotNull
+	private String title;
+
+	private String body;
+
+	@NotNull
+	private Integer upvotes;
+
+	@NotNull
+	private Date uploadTime;
 	
-	
+
+	// FOREIGN RELATIONS
+	@OneToMany (mappedBy = "Report")
+	private List<Report> reportList;
+
+	@OneToMany (mappedBy = "idAward")
+    private List<Award> awardList;
+
+
+	// INTERNAL LOGIC
+	private Integer partialVotes;
+	private double reputation;
+
 	private boolean hasAward;
 	private Date date;
 	
 	private ArrayList<Award>listAwards;
-	
+
 	public Content()
 	{
 		
@@ -66,10 +92,10 @@ public class Content {
 		this.reputation = reputation;
 	}
 	public int getTotalVotes() {
-		return totalVotes;
+		return upvotes;
 	}
 	public void setTotalVotes(Integer totalVotes) {
-		this.totalVotes = totalVotes;
+		this.upvotes = totalVotes;
 	}
 	public int getPartialVotes() {
 		return partialVotes;
@@ -89,17 +115,17 @@ public class Content {
 	public void setBody(String body) {
 		this.body = body;
 	}
-	public String getTopic() {
-		return topic;
+	public int getTopic() {
+		return idTopic;
 	}
-	public void setTopic(String topic) {
-		this.topic = topic;
+	public void setTopic(int topic) {
+		this.idTopic = topic;
 	}
-	public String getUploadDate() {
-		return uploadDate;
+	public Date getUploadDate() {
+		return uploadTime;
 	}
-	public void setUploadDate(String uploadDate) {
-		this.uploadDate = uploadDate;
+	public void setUploadDate(Date uploadDate) {
+		this.uploadTime = uploadDate;
 	}
 	public int getIdContent() {
 		return idContent;
@@ -138,13 +164,13 @@ public class Content {
 	}
 	
 	public void upvote() {		
-		totalVotes++;
+		upvotes++;
 		partialVotes++;
 	}
 	
 	public void downvote() {
-		if(totalVotes>0) {
-			totalVotes--;
+		if(upvotes>0) {
+			upvotes--;
 		}
 		partialVotes--;
 	}

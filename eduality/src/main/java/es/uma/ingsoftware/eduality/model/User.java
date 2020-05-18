@@ -2,32 +2,51 @@ package es.uma.ingsoftware.eduality.model;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
+import com.sun.istack.NotNull;
 import es.uma.ingsoftware.eduality.model.Award;
 import es.uma.ingsoftware.eduality.model.Content;
 
 @Entity
 public class User {
-	
+
+
+    // PRIMARY KEY
 	@Id
+    @NotNull
+    @Column(unique = true)
 	@GeneratedValue
 	private Integer idUser;
-	
-	
-    private String email;
+
+
+    // OTHER
     private String name;
-    private String password;
+
+    @NotNull
+    @Column(unique = true)
+    private String username;
+
+    @NotNull
     private boolean expert;
+
+    @NotNull
+    private String password;
+
+    @NotNull
+    @Column(unique = true)
+    private String email;
+
     private Integer goldamount;
     private Integer silveramount;
     private Integer copperamount;
-    
-    @OneToMany (mappedBy = "user")
-    private List<Content> contentList;
+
+
+    // FOREIGN RELATIONS
+    @OneToMany (mappedBy = "idPost")
+    private List<Post> postList;
+
+
     
     
     public User() {}

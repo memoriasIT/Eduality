@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.validation.Valid;
+//import javax.validation.Valid;
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +50,8 @@ public class ContentController {
 		
 		return "content/index";
 	}
-	
+
+	/*
 	@RequestMapping("content/add")
 	public String addContent (@Valid @ModelAttribute("content")Content content, 
     BindingResult result, ModelMap model) {
@@ -71,6 +72,7 @@ public class ContentController {
 		
 		return "content/add";
 	}
+	*/
 	
 	@PostMapping("content/save")
 	public String saveContent(Content c) {
