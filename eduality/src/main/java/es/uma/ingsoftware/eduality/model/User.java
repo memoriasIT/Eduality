@@ -1,88 +1,94 @@
 package es.uma.ingsoftware.eduality.model;
 
+import com.sun.istack.NotNull;
+
 import java.util.List;
 
 import javax.persistence.*;
 
-import com.sun.istack.NotNull;
-import es.uma.ingsoftware.eduality.model.Award;
-import es.uma.ingsoftware.eduality.model.Content;
 
 @Entity
 public class User {
+	
+	/*@Id
+	@GeneratedValue
+	private Integer idUser;
+	
+	
+    private String email;
+    private String name;
+    private String password;
+    
+    @OneToMany (mappedBy = "user")
+    private List<Content> contentList;*/
 
-
-    // PRIMARY KEY
+	// PRIMARY KEY
 	@Id
-    @NotNull
-    @Column(unique = true)
+	@NotNull
+	@Column(unique = true)
 	@GeneratedValue
 	private Integer idUser;
 
 
-    // OTHER
-    private String name;
+	// OTHER
+	private String name;
 
-    @NotNull
-    @Column(unique = true)
-    private String username;
+	@NotNull
+	@Column(unique = true)
+	private String username;
 
-    @NotNull
-    private boolean expert;
+	@NotNull
+	private boolean expert;
 
-    @NotNull
-    private String password;
+	@NotNull
+	private String password;
 
-    @NotNull
-    @Column(unique = true)
-    private String email;
-
-    private Integer goldamount;
-    private Integer silveramount;
-    private Integer copperamount;
+	@NotNull
+	@Column(unique = true)
+	private String email;
 
 
-    // FOREIGN RELATIONS
-    @OneToMany (mappedBy = "idPost")
-    private List<Post> postList;
+	// FOREIGN RELATIONS
+	@OneToMany (mappedBy = "contentId")
+	private List<Content> contentList;
 
-
-    
+	//@OneToMany (mappedBy = "idComment")
+	//private List<Comment> commentList;
     
     public User() {}
-    public User(String e,String n,String p,boolean b) {
-        email=e;
-        name=n;
-        password=p;
-        expert=b;
-    }
 
-    public boolean isExpert() {
-        return expert;
-    }
+	public Integer getIdUser() {
+		return idUser;
+	}
 
-    public void awardsAvaliable() {
-        if(expert=false) {
-            System.out.println("User is not an expert");
-        }else {
-            System.out.println("The user has "+goldamount+" gold awards");
-            System.out.println("The user has "+silveramount+" gold awards");
-            System.out.println("The user has "+copperamount+" copper awards");
-        }
-    }
+	public void setIdUser(Integer idUser) {
+		this.idUser = idUser;
+	}
 
-    public String getemail() {
-        return email;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public String getname() {
-        return name;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public void giveAward(Content content,Award award) {
-        if( isExpert() && content!=null && award!=null) {
-        	award.applyAward(content);
-        }
-    }
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+    
+    
 
 }

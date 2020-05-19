@@ -14,7 +14,6 @@ public class Report {
 	@GeneratedValue
 	private Integer idReport;
 
-    @Id
     @NotNull
     private Integer idPost;
 
@@ -23,12 +22,12 @@ public class Report {
 
 
     // FOREIGN RELATIONS
-    @OneToMany(mappedBy = "Issue")
-    private List<Issue> IssueList;
+    @OneToMany(mappedBy = "issueId")
+    private List<Issue> issueList;
 
     @ManyToOne
-    private int contentId;
+    private Content content;
 
     @ManyToOne
-    private int commentId;
+    private Comment comment;
 }

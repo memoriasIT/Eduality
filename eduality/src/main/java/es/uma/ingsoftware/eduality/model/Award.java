@@ -1,12 +1,12 @@
 package es.uma.ingsoftware.eduality.model;
 
-import java.util.Date;
-import java.util.List;
-
-import javax.persistence.*;
-
 import com.sun.istack.NotNull;
-import es.uma.ingsoftware.eduality.model.Content;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import java.util.Date;
 
 @Entity
 public class Award {
@@ -15,12 +15,7 @@ public class Award {
     // PRIMARY KEY
 	@Id
 	@GeneratedValue
-    @ManyToOne
 	private Integer idAward;
-
-	@Id
-    //type 1=copper; type 2=silver; type 3=gold
-    private Integer type;
 
 
 	// OTHER
@@ -28,8 +23,15 @@ public class Award {
     private Date dateAchieved;
     private String description;
 
+    //type 1=copper; type 2=silver; type 3=gold
+    private Integer type;
 
     // FOREIGN RELATIONS
+    @ManyToOne
+    private Content awardedContent;
+
+    @ManyToOne
+    private Comment awardedComment;
 
 
     // INTERNAL LOGIC
@@ -51,8 +53,8 @@ public class Award {
     }
 
     public void applyAward(Content content) {
-        content.updateReputation(awardValue);
-        content.addAward(this);
+        //content.updateReputation(awardValue);
+        //content.addAward(this);
     }
     
 }

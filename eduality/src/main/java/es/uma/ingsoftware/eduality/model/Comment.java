@@ -11,29 +11,24 @@ public class Comment {
     // PRIMARY KEYS
 	@Id
 	@GeneratedValue
-    @ManyToOne
 	private int idComment;
 
-	@Id
-	@NotNull
-	@OneToOne
-	private Integer idPost;
 
-	@Id
-	@NotNull
-	@ManyToOne
-	private Integer idUser;
 
 	// OTHER
     @NotNull
     private String content;
+
+     @ManyToOne
+	private User user;
+
 
     @NotNull
     private boolean highlighted;
 
 
     // FOREIGN RELATIONS
-    @OneToMany(mappedBy = "Report")
+    @OneToMany(mappedBy = "idReport")
 	private List<Report> ReportList;
 
     @OneToMany (mappedBy = "idAward")

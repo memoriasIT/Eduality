@@ -25,6 +25,6 @@ public class Topic {
 
 
 	// FOREIGN RELATIONS
-	@OneToMany (mappedBy = "idTopic")
+	@OneToMany (mappedBy = "contentId")
 	private List<Content> contentList;
 }

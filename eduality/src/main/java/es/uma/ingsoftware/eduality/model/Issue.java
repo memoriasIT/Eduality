@@ -1,6 +1,11 @@
 package es.uma.ingsoftware.eduality.model;
 
-import javax.persistence.*;
+import com.sun.istack.NotNull;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Issue {
@@ -8,11 +13,17 @@ public class Issue {
 	// PRIMARY KEY
 	@Id
 	@GeneratedValue
-	private int reportId;
+	private Integer issueId;
+
+    @NotNull
+    private Integer idPost;
+
 
 	// OTHER
+	private String reason;
 
 	// FOREIGN RELATIONS
 	@ManyToOne
-    private String reason;
+ 	private Report report;
+
 }

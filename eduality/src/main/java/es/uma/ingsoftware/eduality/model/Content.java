@@ -1,36 +1,26 @@
 package es.uma.ingsoftware.eduality.model;
-import java.util.ArrayList;
+
+import com.sun.istack.NotNull;
+
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
 
-import com.sun.istack.NotNull;
 
 @Entity
 public class Content {
-
-
+	
 	// PRIMARY KEY
 	@Id
-	@NotNull
 	@GeneratedValue
-	private Integer idContent;
+	private Integer contentId;
 
-	@Id
-	@NotNull
-	@OneToOne
-	private Integer idPost;
-
-	@Id
-	@NotNull
 	@ManyToOne
-	private Integer idUser;
+	private User user;
 
-	@Id
-	@NotNull
 	@ManyToOne
-	private Integer idTopic;
+	private Topic topic;
 
 
 	// OTHER
@@ -43,15 +33,15 @@ public class Content {
 	private Integer upvotes;
 
 	@NotNull
-	private Date uploadTime;
-	
+	private Date uploadDate;
+
 
 	// FOREIGN RELATIONS
-	@OneToMany (mappedBy = "Report")
+	@OneToMany (mappedBy = "idReport")
 	private List<Report> reportList;
 
 	@OneToMany (mappedBy = "idAward")
-    private List<Award> awardList;
+	private List<Award> awardList;
 
 
 	// INTERNAL LOGIC
@@ -60,48 +50,19 @@ public class Content {
 
 	private boolean hasAward;
 	private Date date;
-	
-	private ArrayList<Award>listAwards;
 
-	public Content()
-	{
+
+	public Content() {
+		
 		
 	}
 	
-	public Content(String title, String body)
-	{
-		this.title = title;
-		this.body = body;
-	}
 	
-	
-	public Date getDate() {
-		return date;
+	public Integer getContentId() {
+		return contentId;
 	}
-
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-	
-	
-	public double getReputation() {
-		return reputation;
-	}
-	public void setReputation(double reputation) {
-		this.reputation = reputation;
-	}
-	public int getTotalVotes() {
-		return upvotes;
-	}
-	public void setTotalVotes(Integer totalVotes) {
-		this.upvotes = totalVotes;
-	}
-	public int getPartialVotes() {
-		return partialVotes;
-	}
-	public void setPartialVotes(Integer partialVotes) {
-		this.partialVotes = partialVotes;
+	public void setContentId(Integer contentId) {
+		this.contentId = contentId;
 	}
 	public String getTitle() {
 		return title;
@@ -109,71 +70,22 @@ public class Content {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 	public String getBody() {
 		return body;
 	}
 	public void setBody(String body) {
 		this.body = body;
 	}
-	public int getTopic() {
-		return idTopic;
-	}
-	public void setTopic(int topic) {
-		this.idTopic = topic;
-	}
 	public Date getUploadDate() {
-		return uploadTime;
+		return uploadDate;
 	}
 	public void setUploadDate(Date uploadDate) {
-		this.uploadTime = uploadDate;
+		this.uploadDate = uploadDate;
 	}
-	public int getIdContent() {
-		return idContent;
+	@Override
+	public String toString() {
+		return "Content [title=" + title + ", ]";
 	}
-	public void setIdContent(Integer idContent) {
-		this.idContent = idContent;
-	}
-	
-	public boolean isHasAward() {
-		return hasAward;
-	}
-	public void setHasAward(boolean hasAward) {
-		this.hasAward = hasAward;
-	}
-//	public DateTimeFormatter getDtf() {
-//		return dtf;
-//	}
-//	
-//    public void setDtf(DateTimeFormatter dtf) {
-//		this.dtf = dtf;
-//	}
-//	
-	
-	
-	public void addAward(Award award) {
-		listAwards.add(award);
-	}
-	
-	public void updateReputation(double value) {
-		//TODO Checking the value doesn't have error
-		reputation+=value;
-	}
-	
-	public void resetPartialVotes() {
-		partialVotes=0;
-	}
-	
-	public void upvote() {		
-		upvotes++;
-		partialVotes++;
-	}
-	
-	public void downvote() {
-		if(upvotes>0) {
-			upvotes--;
-		}
-		partialVotes--;
-	}
-	
 
 }
