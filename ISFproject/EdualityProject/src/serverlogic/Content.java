@@ -32,7 +32,7 @@ public class Content {
 		return new Content(idContent, title, body, topic, votes, uploadDate,idUser,hasAward);
 	}
 	
-	//TODO WE NEED TO TEST THAT WHEN WE CREATE A CONTENT WITH hasAward true then listAward.getNumberAwards must be > 0
+	
 	private Content(int idContent,String title, String body, String topic,int votes,long uploadDate,int idUser,boolean hasAward) {
 		this.idContent=idContent;
 		this.title=title;
@@ -51,6 +51,29 @@ public class Content {
 		listAwards=new ArrayList<Award>();
 	}
 	
+	
+	//TODO WE NEED TO TEST THAT WHEN WE CREATE A CONTENT WITH hasAward true then listAward.getNumberAwards must be > 0 | CREATE TEST
+	
+	/** WE SHOULD CREATE A CONSTRUCTOR WITH THE listAwards THAT WE WILL USE WHEN WE CREATE OBJECTS FROM THE DATABASE IN THE
+	 *  TimeReputationUpdater.java
+	private Content(int idContent,String title, String body, String topic,int votes,long uploadDate,int idUser,boolean hasAward,ArrayList<Award> currentAwards) {
+		this.idContent=idContent;
+		this.title=title;
+		this.body=body;
+		this.topic=topic;
+		this.totalVotes=votes;
+		partialVotes=0;
+		
+		///What it should be done when creating a new content for the first time
+		//LocalDateTime now = LocalDateTime.now();
+		/// uploadTime = now.getTime();
+		
+		this.uploadDate = new Date(uploadDate);  //dtf.format(now);
+		this.idUser = idUser; 
+		this.hasAward=hasAward;
+		listAwards=currentAwards;
+	}
+	**/
 	public String getTopic() {
 		return topic;
 	}
@@ -59,7 +82,8 @@ public class Content {
 		//TODO Checking the value doesn't have error
 		reputation+=value;
 	}
-
+	
+	//test it
 	public void resetPartialVotes() {
 		partialVotes=0;
 	}
