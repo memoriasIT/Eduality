@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title></title>
+</head>
+<body>
+		<h1 th:text = "${content}"></h1>
+		<div>
+			<label for = "title">Title : </label>
+			<span th:text = "${content.title}"></span>
+			
+		</div>
+		<div>
+			<label for = "topic">Topic : </label>
+			<span th:text = "${content.topic}"></span>
+			
+		</div>
+		<div>
+			<label for = "body">Body : </label>
+			<span th:text = "${content.body}"></span>
+		</div>
+		<div>
+			<label for = "uploadDate">Upload Date : </label>
+			<span th:text = "${content.uploadDate}"></span>
+		</div>
+		<div>
+			<label for = "upvotes">Up-votes : </label>
+			<span th:text = "${content.upvotes}"></span>
+		</div>
+		
+		<td><a th:href = "@{/content/upvote/{contentId}(contentId = ${content.contentId})}"> Up-vote </a>
+		
+</body>
+</html>
