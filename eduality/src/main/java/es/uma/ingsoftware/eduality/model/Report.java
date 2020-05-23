@@ -30,4 +30,7 @@ public class Report {
 
     @ManyToOne
     private Comment comment;
+
+
+    // Logic
 }
