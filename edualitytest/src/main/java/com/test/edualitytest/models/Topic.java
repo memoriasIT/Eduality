@@ -28,6 +28,11 @@ public class Topic {
 	private List<Content> contentList;
 	
 	
+	
+	public Topic() {
+		super();
+	}
+	
 	public Topic(String topicName) {
 		name=topicName;
 	}
