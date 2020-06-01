@@ -22,10 +22,6 @@ public class Topic {
 	// OTHER
     private String name;
 	
-
-	// FOREIGN RELATIONS
-	@OneToMany (mappedBy = "contentId")
-	private List<Content> contentList;
 	
 	
 	
@@ -33,6 +29,23 @@ public class Topic {
 		super();
 	}
 	
+	
+	
+	
+	public Integer getIdTopic() {
+		return idTopic;
+	}
+
+
+
+
+	public void setIdTopic(Integer idTopic) {
+		this.idTopic = idTopic;
+	}
+
+
+
+
 	public Topic(String topicName) {
 		name=topicName;
 	}

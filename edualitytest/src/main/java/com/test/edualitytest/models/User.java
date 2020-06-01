@@ -42,7 +42,7 @@ public class User {
 	
 	
 	// FOREIGN RELATIONS
-	@OneToMany (mappedBy = "contentId")
+	@OneToMany (mappedBy = "user")
 	private List<Content> contentList;
 	
 	//@OneToMany (mappedBy = "idComment")

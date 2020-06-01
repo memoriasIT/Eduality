@@ -22,7 +22,7 @@ public class ContentLogic {
 	private Integer idContent;
 	
 
-	private int idUser;
+	private Integer idUser;
 	private boolean hasAward;
 	private ArrayList<AwardLogic>listAwards;
 	
@@ -75,7 +75,7 @@ public class ContentLogic {
 	}
 	
 	
-	public ContentLogic(int idContent,String title, String body, String topicName,int votes,Date uploadDate,int idUser,boolean hasAward, ArrayList<AwardLogic> listAwards) {
+	public ContentLogic(int idContent,String title, String body, String topicName,int votes,Date uploadDate,Integer idUser,boolean hasAward, ArrayList<AwardLogic> listAwards) {
 		this.idContent=idContent;
 		this.title=title;
 		this.body=body;
