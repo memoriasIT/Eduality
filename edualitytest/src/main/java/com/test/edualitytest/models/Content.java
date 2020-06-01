@@ -11,8 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.sun.istack.NotNull;
+import com.test.edualitytest.logic.AwardLogic;
 import com.test.edualitytest.logic.ContentLogic;
-
 
 
 @Entity
@@ -68,8 +68,8 @@ public class Content {
 		
 	public Content(ContentLogic myContent) {
 		
-		
-		this.contentId=myContent.getIdContent();
+		//Do we need to get the Id also???
+		//this.contentId=myContent.getIdContent();
 		this.title= myContent.getTitle();
 		this.body= myContent.getBody();
 		this.topic= new Topic (myContent.getTopic()) ;
@@ -83,11 +83,20 @@ public class Content {
 		this.user = new User(myContent.getIdUser()); 
 		this.hasAward=myContent.getHasAward();
 		
-		//awardList=myContent.getListAwards();
+		awardList=convertListOfAwardLogic(myContent.getListAwards());
 		
 		
 	}
+	
+	private List<Award> convertListOfAwardLogic(List<AwardLogic> myListOfAwardLogic){
+		List<Award> myListOfAwards = new ArrayList<>();
 		
+		for(AwardLogic award : myListOfAwardLogic) {
+			myListOfAwards.add(new Award(award));
+		}
+		
+		return myListOfAwards;
+	}
 	
 	public Integer getUpvotes() {
 		return upvotes;
@@ -97,8 +106,6 @@ public class Content {
 	public void setUpvotes(Integer upvotes) {
 		this.upvotes = upvotes;
 	}
-
-
 
 
 	public User getUser() {
