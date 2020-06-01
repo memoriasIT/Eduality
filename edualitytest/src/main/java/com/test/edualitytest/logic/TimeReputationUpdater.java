@@ -3,8 +3,10 @@ package com.test.edualitytest.logic;
 
 import java.util.*;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.test.edualitytest.models.Content;
 import com.test.edualitytest.services.ContentService;
 
 public class TimeReputationUpdater extends Thread {
@@ -32,9 +34,18 @@ public class TimeReputationUpdater extends Thread {
 		    @Override
 		    public void run () {
 		        
-		   
 		        //WE NEED TO CREATE ALL THE ContentLogic OBJECTS AND GET THE PARAMETERS FROM THE DATABASE
 		    	
+		    	List<Content> contents = cs.getAll();
+		    	ContentLogic cl;
+		    	
+		    	for(int i = 0; i <= contents.size(); i++) {
+		    		
+		    		  cl = new ContentLogic(contents.get(i).getContentId(), contents.get(i).getTitle(), contents.get(i).getBody(), contents.get(i).getTopic().getName(),contents.get(i).getUpvotes(),contents.get(i).getUploadDate(),contents.get(i).getUser().getIdUser(),contents.get(i).isHasAward());
+		    		  eduality.fairAlgorithm(cl);
+		    		  
+		    		
+		    	}
 		    	
 		    	
 		    	//---------------------------------------------------------------------

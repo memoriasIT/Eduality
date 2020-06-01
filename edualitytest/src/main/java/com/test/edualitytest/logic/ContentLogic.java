@@ -13,13 +13,13 @@ import com.test.edualitytest.models.*;
 public class ContentLogic {
 
 	private double reputation;
-	private int totalVotes;
-	private int partialVotes;
+	private Integer totalVotes;
+	private Integer partialVotes;
 	private String title;
 	private String body;
 	private String topic;
 	private Date uploadDate;
-	private int idContent;
+	private Integer idContent;
 	
 
 	private int idUser;
@@ -31,7 +31,7 @@ public class ContentLogic {
 
 	//TODO WE NEED TO TEST THAT WHEN WE CREATE A CONTENT WITH hasAward true then listAward.getNumberAwards must be > 0 | CREATE TEST
 	
-	public ContentLogic createContent(int idContent, String title, String body, String topic,int votes,long uploadDate,int idUser,boolean hasAward) {
+	public ContentLogic createContent(Integer idContent, String title, String body, String topic,Integer votes,Date uploadDate,Integer idUser,boolean hasAward) {
 		if(title.length()<=0 || title.length()>50) {
 			throw new RuntimeException("Invalid title length");
 		}else if(body.length()<=0 || body.length()>1000) {
@@ -43,7 +43,7 @@ public class ContentLogic {
 		return new ContentLogic(idContent, title, body, topic, votes, uploadDate,idUser,hasAward);
 	}
 	
-	private ContentLogic(int idContent,String title, String body, String topic,int votes,long uploadDate,int idUser,boolean hasAward) {
+	public ContentLogic(Integer idContent,String title, String body, String topic,Integer votes,Date uploadDate,Integer idUser,boolean hasAward) {
 		this.idContent=idContent;
 		this.title=title;
 		this.body=body;
@@ -55,14 +55,14 @@ public class ContentLogic {
 		//LocalDateTime now = LocalDateTime.now();
 		/// uploadTime = now.getTime();
 		
-		this.uploadDate = new Date(uploadDate);  //dtf.format(now);
+		this.uploadDate = uploadDate;  //dtf.format(now);
 		this.idUser = idUser; 
 		this.hasAward=hasAward;
 		listAwards=new ArrayList<AwardLogic>();
 	}
 	
 	
-	public ContentLogic createContentDatabase(int idContent, String title, String body, String topic,int votes,long uploadDate,int idUser,boolean hasAward, ArrayList<AwardLogic> listAwards) {
+	public ContentLogic createContentDatabase(int idContent, String title, String body, String topic,int votes,Date uploadDate,int idUser,boolean hasAward, ArrayList<AwardLogic> listAwards) {
 		if(title.length()<=0 || title.length()>50) {
 			throw new RuntimeException("Invalid title length");
 		}else if(body.length()<=0 || body.length()>1000) {
@@ -75,7 +75,7 @@ public class ContentLogic {
 	}
 	
 	
-	public ContentLogic(int idContent,String title, String body, String topicName,int votes,long uploadDate,int idUser,boolean hasAward, ArrayList<AwardLogic> listAwards) {
+	public ContentLogic(int idContent,String title, String body, String topicName,int votes,Date uploadDate,int idUser,boolean hasAward, ArrayList<AwardLogic> listAwards) {
 		this.idContent=idContent;
 		this.title=title;
 		this.body=body;
@@ -84,7 +84,7 @@ public class ContentLogic {
 		partialVotes=0;
 		
 		
-		this.uploadDate = new Date(uploadDate);  
+		this.uploadDate = uploadDate;  
 		this.idUser = idUser; 
 		this.hasAward=hasAward;
 		this.listAwards=listAwards;

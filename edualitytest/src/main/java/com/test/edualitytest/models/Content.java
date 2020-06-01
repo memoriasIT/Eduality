@@ -1,5 +1,6 @@
 package com.test.edualitytest.models;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -79,7 +80,9 @@ public class Content {
 		//partialVotes= myContent.getPartialVotes() ;
 		
 		
-		this.uploadDate = myContent.getUploadDate();  
+		
+		
+		this.uploadDate = myContent.getUploadDate(); 
 		this.user = new User(myContent.getIdUser()); 
 		this.hasAward=myContent.getHasAward();
 		
@@ -169,6 +172,14 @@ public class Content {
 		this.uploadDate = uploadDate;
 	}
 	
+	public boolean isHasAward() {
+		return hasAward;
+	}
+
+	public void setHasAward(boolean hasAward) {
+		this.hasAward = hasAward;
+	}
+
 	public void upvote() {
 		
 		this.upvotes ++;
