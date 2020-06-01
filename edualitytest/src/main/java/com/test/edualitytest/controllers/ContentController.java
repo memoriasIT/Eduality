@@ -82,7 +82,7 @@ public class ContentController {
 		c.setReputation(0);
 		c.setUpvotes(0);
 		c.setUploadDate(ts);
-		c.setTopic(new Topic());
+		c.setTopic(new Topic("test"));
 		c.getTopic().setIdTopic(0);
 		c.setHasAward(false);
 		cs.save(c);
