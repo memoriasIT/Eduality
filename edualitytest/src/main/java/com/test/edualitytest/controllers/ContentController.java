@@ -36,7 +36,16 @@ public class ContentController {
 		return "content/home";
 	}
 	
-	@RequestMapping("content")
+	@RequestMapping("content/dashboard")
+	public String dashboard() {
+		
+				
+		
+		
+		return "content/dashboard";
+	}
+	
+	@RequestMapping("content/index")
 	public String contentList(Model model) {
 		
 		List<Content> contents = cs.getAll();
@@ -44,17 +53,18 @@ public class ContentController {
 		model.addAttribute("contentList", contents);		
 		
 		
-		
 		return "content/index";
 	}
 	
+	
+	
 
-	@RequestMapping("content/add")
+	@RequestMapping("content/profile")
 	public String addContent (Model model) {
 		
 		model.addAttribute("content", new Content());	
 		
-		return "content/add";
+		return "content/profile";
 	}
 	
 	@RequestMapping("content/edit/{contentId}")
@@ -62,7 +72,7 @@ public class ContentController {
 		
 		model.addAttribute("content", cs.getById(contentId));
 		
-		return "content/add";
+		return "content/profile";
 	}
 	
 
@@ -71,7 +81,7 @@ public class ContentController {
 		
 		cs.delete(contentId);
 		
-		return "redirect:/content";
+		return "redirect:/content/index";
 	}
 	
 	@PostMapping("content/save")

@@ -5,23 +5,23 @@
 <title>Content List</title>
 </head>
 <body>
-	<h1>Content List</h1>
-	<a th:href = "@{/content/add}">Create new Content</a>
-	<table>
-		<thead>
-			<tr><td>Id</td><td>Title</td><td>Topic</td><td>Body</td><td>Upvotes</td></tr>
-		</thead>
-		<tbody>
-			<tr th:each = "c : ${contentList}">
-				<td th:text="${c.contentId}"></td>
-				<td th:text="${c.title}"></td>
-				<td th:text="${c.topic}"></td>
-				<td th:text="${c.body}"></td>
-				<td th:text="${c.upvotes}"></td>
-				<td><a th:href = "@{/content/view/{contentId}(contentId = ${c.contentId})}"> View </a><a th:href = "@{/content/edit/{contentId}(contentId = ${c.contentId})}"> Edit </a><a th:href = "@{/content/delete/{contentId}(contentId = ${c.contentId})}"> Delete </a></td> 
-			</tr>
-		</tbody>
-	
-	</table>
+    <h1>Content List</h1>
+    <a th:href = "@{/content/profile}">Create new Content</a>
+    <table>
+        <thead>
+            <tr><td>Id</td><td>Title</td><td>Topic</td><td>Body</td><td>Upvotes</td></tr>
+        </thead>
+        <tbody>
+            <tr th:each = "c : ${contentList}">
+                <td th:text="${c.contentId}"></td>
+                <td th:text="${c.title}"></td>
+                <td th:text="${c.topic}"></td>
+                <td th:text="${c.body}"></td>
+                <td th:text="${c.upvotes}"></td>
+                <td><a th:href = "@{/content/view/{contentId}(contentId = ${c.contentId})}"> View </a><a th:href = "@{/content/edit/{contentId}(contentId = ${c.contentId})}"> Edit </a><a th:href = "@{/content/delete/{contentId}(contentId = ${c.contentId})}"> Delete </a></td> 
+            </tr>
+        </tbody>
+    
+    </table>
 </body>
 </html>

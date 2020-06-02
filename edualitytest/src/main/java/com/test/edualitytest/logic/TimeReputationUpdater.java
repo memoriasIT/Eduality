@@ -69,7 +69,6 @@ public class TimeReputationUpdater extends Thread {
 				 }
 				 **/
 				
-		    	
 		    }
 		};
 		

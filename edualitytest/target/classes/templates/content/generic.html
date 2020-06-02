@@ -6,29 +6,55 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="../../static/assets/css/main.css" th:href="@{../../static/assets/css/main.css}" />
 	</head>
 	<body class="is-preload">
 
 		<!-- Header -->
 			<header id="header">
-				<a class="logo" href="index.html">Eduality</a>
+				<a class="logo" href="index.html">EDUALITY</a>
+				
+				 <nav style="position:absolute; margin-left:100px;" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories <span class="caret"></span></a>
+        <ul style=" background-color: #111111;
+  color: white; -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      text-transform: none !important; content: '\f00d';
+      font-size: 1.25rem;
+"class="dropdown-menu">
+          <li><a style="" href="generic.html">Animals</a></li>
+          <li><a href="#">Books</a></li>
+          <li><a href="#">Cardiovasculatiry</a></li>
+		  <li><a href="#">Doplhins</a></li>
+          <li><a href="#">Engineering</a></li>
+		  <li><a href="#">Facts</a></li>
+          <li><a href="#">GitHub</a></li>
+		  <li><a href="#">History</a></li>
+          <li><a href="#">Informatics</a></li>
+		  <li><a href="#">Photography</a></li>
+
+		  
+        </ul>
+				</nav>
 				<nav>
 					<a href="#menu">Menu</a>
 				</nav>
 			</header>
 
 		<!-- Nav -->
+		
 			<nav id="menu">
 				<ul class="links">
-					<li><a href="home.html">Home</a></li>
+					<li><a href="index.html">Home</a></li>
+					
 					<li><a href="generic.html">About us</a></li>
 					<li><a href="profile.html">My profile</a></li>
-					<li><a href="index.html">Dashboard</a></li>
+					<li><a href="dashboard.html">Dashboard</a></li>
 					<li><a href="categories.html">Categories</a></li>
 				</ul>
 			</nav>
-
 		<!-- Heading -->
 			<div id="heading" >
 				<h1>ABOUT US</h1>
@@ -59,14 +85,14 @@
 						<p> The main idea is that, firstly, we will divide the activities into smaller tasks, after that we will try to solve them by our own, then we will meet to try to achieve the best possible solution for each task using the ideas that we developed alone. Once we get a common solution we should check if it fulfills the constraints of our main problem.</p>
 					<hr />
 						<h2>Requirements</h2>
-						<img src="images/unknown.png" width="1000" height="400" alt="Computer Hope"></img>
+						<img  th:href="@{../../static/images/unknown.png}" src="../../static/images/unknown.png" width="1000" height="400" alt="Computer Hope"></img>
 						<hr />
 						<h2>Architectural Style - REST Architecture </h2>
 						<p>This architecture is a magnificent choice for our project. As you have seen it’s simple, goes straight to the point and it’s very fast.
 
 It makes it easy to separate client and server and using connectors based on HTTP (GET, POST, PUT) make the documentation simple and the project easier to maintain the long term.
 </p>
-<img src="images/REST.png" ></img>
+<img th:href="@{../../static/images/REST.png}" src="../../static/images/REST.png" ></img>
 					</div>
 				</div>
 			</section>
@@ -105,11 +131,12 @@ It makes it easy to separate client and server and using connectors based on HTT
 			</footer>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="../../static/assets/js/jquery.min.js" th:href="@{../../static/assets/js/jquery.min.js}"></script>
+			<script src="../../static/assets/js/browser.min.js" th:href="@{../../static/assets/js/breakpoints.min.js}" ></script>
+			<script src="../../static/assets/js/breakpoints.min.js" th:href="@{../../static/assets/css/main.css}"></script>
+			<script src="../../static/assets/js/util.js" th:href="@{../../static/assets/js/util.js}"></script>
+			<script src="../../static/assets/js/main.js" th:href="@{../../static/assets/js/main.js}"></script>
+
 
 	</body>
 </html>

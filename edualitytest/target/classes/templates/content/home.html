@@ -1,31 +1,28 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!--
+	Industrious by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
 <style>
 @import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600");
 </style>
 
 	<head>
-    
-   
-         
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--   <link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css}"> -->
-  <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{css/bootstrap.css}"/> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  
-    
-    
-   
-</head>
+
 		<title>EDUALITY</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="../../static/assets/css/main.css" th:href="@{../../static/assets/css/main.css}" />
 	</head>
 	<body class="is-preload">
 
@@ -66,11 +63,11 @@
 		
 			<nav id="menu">
 				<ul class="links">
-					<li><a href="home.html">Home</a></li>
+					<li><a href="index.html">Home</a></li>
 					
 					<li><a href="generic.html">About us</a></li>
 					<li><a href="profile.html">My profile</a></li>
-					<li><a href="index.html">Dashboard</a></li>
+					<li><a href="dashboard.html">Dashboard</a></li>
 					<li><a href="categories.html">Categories</a></li>
 				</ul>
 			</nav>
@@ -81,7 +78,7 @@
 					
 					
 				</div>
-				<img src="images/banner.png"></img>
+				<img src="../../static/images/banner.png" th:href="@{../../static/images/banner.png}"></img>
 			</section>
 
 		<!-- Highlights -->
@@ -174,7 +171,7 @@
 								</blockquote>
 								<div class="author">
 									<div class="image">
-										<img src="images/pic.01.jpg" alt="" />
+										<img th:href="@{../../static/images/banner.png}" src="../../static/images/pic.01.jpg" alt="" />
 									</div>
 									<p class="credit">- <strong>Nuta Andreea</strong> <span>,Eduality S.A.</span></p>
 								</div>
@@ -187,7 +184,7 @@
 								</blockquote>
 								<div class="author">
 									<div class="image">
-										<img src="images/pic03.jpg" alt="" />
+										<img th:href="@{../../static/images/pic03.jpg}" src="../../static/images/pic03.jpg" alt="" />
 									</div>
 									<p class="credit">- <strong>Antonio Jesús Canales Delgado</strong> <span>,Eduality S.A.</span></p>
 								</div>
@@ -200,7 +197,7 @@
 								</blockquote>
 								<div class="author">
 									<div class="image">
-										<img src="images/Leiva.jpeg" alt="" />
+										<img th:href="@{../../static/images/Leiva.jpeg}"  src="../../static/images/Leiva.jpeg" alt="" />
 									</div>
 									<p class="credit">- <strong>Manuel Leiva Gómez</strong> <span>,Eduality S.A.</span></p>
 								</div>
@@ -213,7 +210,7 @@
 								</blockquote>
 								<div class="author">
 									<div class="image">
-										<img src="images/alvaro.jpeg" alt="" />
+										<img th:href="@{../../static/images/alvaro.jpeg}" src="../../static/images/alvaro.jpeg" alt="" />
 									</div>
 									<p class="credit">- <strong>Álvaro Lloret López</strong> <span>,Eduality S.A.</span></p>
 								</div>
@@ -226,7 +223,7 @@
 								</blockquote>
 								<div class="author">
 									<div class="image">
-										<img src="images/liana.jpeg" alt="" />
+										<img th:href="@{../../static/images/liana.jpeg}" src="../../static/images/liana.jpeg" alt="" />
 									</div>
 									<p class="credit">- <strong>Sacu Liana</strong> <span>,Eduality S.A.</span></p>
 								</div>
@@ -240,7 +237,7 @@ Furthermore, brand agreements helped me get sponsorship which motivate me to cre
 								</blockquote>
 								<div class="author">
 									<div class="image">
-										<img src="images/lorenzo.jpeg" alt="" />
+										<img th:href="@{../../static/images/lorenzo.jpeg}" src="../../static/images/lorenzo.jpeg" alt="" />
 									</div>
 									<p class="credit">- <strong>Lorenzo Velasco Sánchez</strong> <span>,Eduality S.A.</span></p>
 								</div>
@@ -286,11 +283,11 @@ Furthermore, brand agreements helped me get sponsorship which motivate me to cre
 			</footer>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="../../static/assets/js/jquery.min.js" th:href="@{../../static/assets/js/jquery.min.js}"></script>
+			<script src="../../static/assets/js/browser.min.js" th:href="@{../../static/assets/js/breakpoints.min.js}" ></script>
+			<script src="../../static/assets/js/breakpoints.min.js" th:href="@{../../static/assets/css/main.css}"></script>
+			<script src="../../static/assets/js/util.js" th:href="@{../../static/assets/js/util.js}"></script>
+			<script src="../../static/assets/js/main.js" th:href="@{../../static/assets/js/main.js}"></script>
 
 	</body>
 </html>

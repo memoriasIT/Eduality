@@ -34,7 +34,7 @@ if(isset($_POST['submit']))
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="/assets/css/main.css " th:href="@{/assets/css/main.css}" />
 	</head>
 	<body class="is-preload">
 
@@ -49,16 +49,16 @@ if(isset($_POST['submit']))
 		<!-- Nav -->
 			<nav id="menu">
 				<ul class="links">
-					<li><a href="index.html">Home</a></li>
+					<li><a href="home.html">Home</a></li>
 				
 					<li><a href="generic.html">About us</a></li>
 					<li><a href="profile.html">My profile</a></li>
-					<li><a href="dashboard.html">Dashboard</a></li>
-					<li><a href="categories.html">Categories</a></li>
+					<li><a href="index.html">Dashboard</a></li>
+					
 				</ul>
 			</nav>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" th:href="@{/assets/css/font-awesome.min.css}">
 <style>
 .card {
  position: absolute;
@@ -106,7 +106,7 @@ button:hover, a:hover {
 <h2 style="text-align:center"></h2>
 <div id="Profile-content">
 					<div class="card" style="background-color:white; border-radius:10%">
-				  <img src="images/pic.01.jpg" alt="John" style="width:50%; border-radius: 50%; margin-top:20px; margin-bottom:10px">
+				  <img th:href="@{/images/pic.01.jpg}" src="/images/pic.01.jpg" alt="John" style="width:50%; border-radius: 50%; margin-top:20px; margin-bottom:10px">
 				  <h1>Nuta Andreea</h1>
 				  <p class="title">Eduality co-founder</p>
 				  <p>UMA ETSde Ingeniería Informática</p>
@@ -132,13 +132,13 @@ button:hover, a:hover {
 
 /* Fake image */
 .fakeimg {
-  background-image:url(images/malaga.jpg);
+  background-image:url(/images/malaga.jpg);
   width: 65;
   padding: 20px;
   margin:20px;
 }
 .fakeimg1{
- image:url(images/descarcare.jpg);
+ image:url(/images/descarcare.jpg);
 align:no-repeat;
   padding: 20px;
   margin:20px;
@@ -187,7 +187,7 @@ align:no-repeat;
 .downvote{
    width:30px;
    height: 20px;
-   background-image: "images/images.png";
+   background-image: "/images.png";
    cursor: pointer;
 }
 
@@ -211,7 +211,7 @@ font-size:14px;}
 		<!-- Posts -->
 			<section style="position:relative; margin-left:-230px; margin-top:-130px;
 	left:0;" class="wrapper" >
-	
+
 				<div class="inner">
 					<header class="first">
 						<h4 style="align:left-side;"></h4>
@@ -241,7 +241,7 @@ font-size:14px;}
 					</div>
 							  <div class="col-md-2">
 							  
-				  <img src="images/pic.01.jpg" alt="John" style="width:5%; border-radius: 50%; margin-top:9px;">
+				  <img src="/images/pic.01.jpg" alt="John" style="width:5%; border-radius: 50%; margin-top:9px;">
 							 
 				 <input style="position:absolute;margin-top:15px;margin-left:20px; " type="file" id="myfile" name="myfile" value="Attach a file" multiple><br><br>
  
@@ -265,9 +265,9 @@ font-size:14px;}
 									<div class="col-md-2" >
 										 <div class="buttons" style="width:40px;">
 
-									<button style="padding: 0; margin: 0; " id="up"  onclick="up1();" > <img src="images/up.png" style="width:50px;"></img></button>
+									<button style="padding: 0; margin: 0; " id="up"  onclick="up1();" > <img src="/images/up.png" style="width:50px;"></img></button>
 										<p id="demo" style="font-size:20px; text-align:center; margin:0px; margin-left:10px; margin-top:-12px;" ></p>
-									<button style="padding: 0; margin: 0; margin-top:-8px;" id="down"  onclick="down1();"> <img src="images/down.png" style="width:50px;"></img></button>
+									<button style="padding: 0; margin: 0; margin-top:-8px;" id="down"  onclick="down1();"> <img src="/images/down.png" style="width:50px;"></img></button>
 											
 											<script type="text/javascript">
 														var count=0;
@@ -313,7 +313,7 @@ font-size:14px;}
 							 
 							  </div>
 							  <div class="col-md-2">
-							 <img src="images/pic.01.jpg" alt="John" style="width:3.5%; border-radius: 50%; position:absolute; margin-top:9px;  margin-left:730px;">
+							 <img src="/images/pic.01.jpg" alt="John" style="width:3.5%; border-radius: 50%; position:absolute; margin-top:9px;  margin-left:730px;">
 							 
 							  </div>
 						   </div>
@@ -335,10 +335,10 @@ font-size:14px;}
 									<div class="col-md-2" >
 										 <div class="buttons" style="width:40px;">
 
-									<button style="padding: 0; margin: 0; " id="up"  onclick="up();" > <img src="images/up.png" style="width:50px;"></img></button>
+									<button style="padding: 0; margin: 0; " id="up"  onclick="up();" > <img src="/images/up.png" style="width:50px;"></img></button>
 										<span  id="demo1"th:text = "${content.upvotes}"></span>
 										<p id="demo1" style="font-size:20px; text-align:center; margin:0px; margin-left:10px; margin-top:-12px;" ></p>
-									<button style="padding: 0; margin: 0; margin-top:-8px;" id="down"  onclick="down();"> <img src="images/down.png" style="width:50px;"></img></button>
+									<button style="padding: 0; margin: 0; margin-top:-8px;" id="down"  onclick="down();"> <img src="/images/down.png" style="width:50px;"></img></button>
 											
 											<script type="text/javascript">
 														var count=0;
@@ -366,7 +366,7 @@ font-size:14px;}
 <span th:text = "${content.title}"style="padding:2px; margin-left:30px;"></span>
 						<h5 >Title description, date, 2020</h5>
 						
-						<img src="images/descarcare.jpg" style=" margin:20px; margin-left:30px;">
+						<img src="/images/descarcare.jpg" style=" margin:20px; margin-left:30px;">
 
 							<p style="margin:20px; margin-bottom:-20px;"></p>
 						<div>	
@@ -385,7 +385,7 @@ font-size:14px;}
 							 
 							  </div>
 							  <div class="col-md-2">
-							 <img src="images/pic.01.jpg" alt="John" style="width:3.5%; border-radius: 50%; position:absolute; margin-top:9px;  margin-left:730px;">
+							 <img src="/images/pic.01.jpg" alt="John" style="width:3.5%; border-radius: 50%; position:absolute; margin-top:9px;  margin-left:730px;">
 							 
 							  </div>
 						   </div>
@@ -434,11 +434,12 @@ font-size:14px;}
 			</footer>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		
+			<script src="assets/js/jquery.min.js" th:href="@{assets/js/jquery.min.js}" ></script>
+			<script src="assets/js/browser.min.js" th:href="@{assets/js/browser.min.js}" ></script>
+			<script src="assets/js/breakpoints.min.js" th:href="@{assets/js/breakpoints.min.js}" ></script>
+			<script src="assets/jsutil.js" th:href="@{assets/jsutil.js}" ></script>
+			<script src="assets/js/main.js" th:href="@{assets/js/main.js}"></script>
 
 	</body>
 </html>
