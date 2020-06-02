@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 import com.test.edualitytest.models.Content;
+import com.test.edualitytest.models.Topic;
 import com.test.edualitytest.services.ContentService;
 
 
@@ -25,6 +26,15 @@ public class ContentController {
 	
 	@Autowired
 	ContentService cs;
+	
+	@RequestMapping("home")
+	public String contentList() {
+		
+				
+		
+		
+		return "content/home";
+	}
 	
 	@RequestMapping("content")
 	public String contentList(Model model) {
@@ -72,6 +82,9 @@ public class ContentController {
 		c.setReputation(0);
 		c.setUpvotes(0);
 		c.setUploadDate(ts);
+		c.setTopic(new Topic("test"));
+		c.getTopic().setIdTopic(0);
+		c.setHasAward(false);
 		cs.save(c);
 		
 		return "redirect:/content";

@@ -2,30 +2,58 @@ package com.test.edualitytest.models;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.sun.istack.NotNull;
+
 
 
 @Entity
 public class User {
-	
+
+	// PRIMARY KEY
 	@Id
+	@NotNull
+	@Column(unique = true)
 	@GeneratedValue
 	private Integer idUser;
 	
 	
-    private String email;
-    private String name;
-    private String password;
-    
-    @OneToMany (mappedBy = "user")
-    private List<Content> contentList;
+	// OTHER
+	private String name;
+	
+	@NotNull
+	@Column(unique = true)
+	private String username;
+	
+	@NotNull
+	private boolean expert;
+	
+	@NotNull
+	private String password;
+	
+	@NotNull
+	@Column(unique = true)
+	private String email;
+	
+	
+	// FOREIGN RELATIONS
+	@OneToMany (mappedBy = "user")
+	private List<Content> contentList;
+	
+	//@OneToMany (mappedBy = "idComment")
+	//private List<Comment> commentList;
     
     public User() {}
 
+    public User(int id_of_user) {
+    	idUser=id_of_user;
+    }
+    
 	public Integer getIdUser() {
 		return idUser;
 	}
