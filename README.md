@@ -41,6 +41,12 @@ _“In modern society, certain subjects have been heavily controlled by a little
 <b>Andreea Nuță:</b> Documentation and testing<br>
 <b>Liana Șacu:</b> Design and requirements<br>
 
+<h3> Documentation </h3>
+
+A full UML model is provided with requirements, use case model, class models, etc.
+<br>A Magic Draw file is provided <a href="https://github.com/memoriasIT/Eduality/blob/master/docs/EdualityUML.mdzip">here.</a>
+<br>And UML diagram images can be found <a href="https://github.com/memoriasIT/Eduality/tree/master/docs/UML">here.</a>
+
 <h3> FAQ </h3>
 
 **Q: Should the user login to see the content?** <br>
