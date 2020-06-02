@@ -22,7 +22,7 @@ _A community driven page sorted by a fair algorithm._
 
 <h3> Phylosophy </h3>
 
-“In modern society, certain subjects have been heavily controlled by a little group of people who decide what should and should not be popular. Eduality allows people to promote themselves and get the recognition that they deserve, to the extent of even getting the chance of working with brands we have agreements with.”
+_“In modern society, certain subjects have been heavily controlled by a little group of people who decide what should and should not be popular. Eduality allows people to promote themselves and get the recognition that they deserve, to the extent of even getting the chance of working with brands we have agreements with.”_
 
 <h3> Contributors </h3>
 
@@ -40,28 +40,28 @@ Liana Șacu: Design and requirements
 
 <h3> FAQ </h3>
 
-Q: Should the user login to see the content?
-A: You should have an account in order to evaluate the content, it’s not needed to see the content.
+**Q: Should the user login to see the content?** <br>
+_A: You should have an account in order to evaluate the content, it’s not needed to see the content._
 
-Q: Should someone review the content user post?
-A: No moderation needed, there is a mechanism to report.
+**Q: Should someone review the content user post?**<br>
+_A: No moderation needed, there is a mechanism to report._
 
-Q: Should users lose points if they post not useful content?
-A: If there is a violation you should lose point. If content is not useful you will not be punished.
+**Q: Should users lose points if they post not useful content?**<br>
+_A: If there is a violation you should lose point. If content is not useful you will not be punished._
 
-Q: How should we classificate the content?
-A: You should be rewarded if your posts are popular.
+**Q: How should we classificate the content?**<br>
+_A: You should be rewarded if your posts are popular._
 
-Q: Do all users have equal rights? Or some have more influence/power?
-A: Some experts start with more reputation (provide credentials of their knowledge, 
+**Q: Do all users have equal rights? Or some have more influence/power?**<br>
+_A: Some experts start with more reputation (provide credentials of their knowledge, 
 then we should authenticate it with transparent mechanism). A normal user can become an expert too. 
-Experts can have more power with voting (something reasonable).
+Experts can have more power with voting (something reasonable)._
 
-Q: Does a report system exist? If so, how does it work?
-A: Fill a form with details, source to demonstrate violation, etc
+**Q: Does a report system exist? If so, how does it work?**<br>
+_A: Fill a form with details, source to demonstrate violation, etc_
 
-Q: Does a bot manage the reports or actual workers?
-A: mixed thing, some automatic process (filters) should report the same thing (or similar) and then present to some moderator
+**Q: Does a bot manage the reports or actual workers?**<br>
+_A: mixed thing, some automatic process (filters) should report the same thing (or similar) and then present to some moderator_
 
-Q: What is the most important thing in this application for you?
-A: Fairness.
+**Q: What is the most important thing in this application for you?**<br>
+_A: Fairness._
