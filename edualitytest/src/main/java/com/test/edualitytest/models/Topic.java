@@ -23,14 +23,14 @@ public class Topic {
     private String name;
 	
 	
-	
-	
 	public Topic() {
 		super();
 	}
 	
 	
-	
+	public Topic(String topicName) {
+		name=topicName;
+	}
 	
 	public Integer getIdTopic() {
 		return idTopic;
@@ -44,11 +44,6 @@ public class Topic {
 	}
 
 
-
-
-	public Topic(String topicName) {
-		name=topicName;
-	}
 	
 	public String getName() {
 		return name;

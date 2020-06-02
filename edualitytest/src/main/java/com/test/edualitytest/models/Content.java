@@ -69,7 +69,6 @@ public class Content {
 		
 	public Content(ContentLogic myContent) {
 		
-		//Do we need to get the Id also???
 		//this.contentId=myContent.getIdContent();
 		this.title= myContent.getTitle();
 		this.body= myContent.getBody();
@@ -79,15 +78,11 @@ public class Content {
 		//we don't really need to have partial votes in the database
 		//partialVotes= myContent.getPartialVotes() ;
 		
-		
-		
-		
 		this.uploadDate = myContent.getUploadDate(); 
 		this.user = new User(myContent.getIdUser()); 
 		this.hasAward=myContent.getHasAward();
 		
 		awardList=convertListOfAwardLogic(myContent.getListAwards());
-		
 		
 	}
 	
@@ -179,12 +174,18 @@ public class Content {
 	public void setHasAward(boolean hasAward) {
 		this.hasAward = hasAward;
 	}
+	
+	public List<Award> getAwardList() {
+		return awardList;
+	}
 
 	public void upvote() {
 		
+		this.partialVotes++;
 		this.upvotes ++;
 		
 	}
+	
 	@Override
 	public String toString() {
 		return "Content [title=" + title + ", topic=" + topic + ", user=" + user + "]";

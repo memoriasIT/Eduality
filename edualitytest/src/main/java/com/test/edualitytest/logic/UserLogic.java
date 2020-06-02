@@ -21,7 +21,7 @@ public class UserLogic {
     }
 
     public void awardsAvaliable() {
-        if(expert=false) {
+        if(!expert) {
             System.out.println("User is not an expert");
         }else {
             System.out.println("The user has "+goldamount+" gold awards");

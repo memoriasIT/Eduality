@@ -38,13 +38,12 @@ public class Award {
 
 	    // INTERNAL LOGIC
 	    private Integer awardValue;
-	    private static Integer awardMultiplier=10;
+	   // private static Integer awardMultiplier=10;
 	    
 	    
 	    public Award() {}
 
 	    public Award(AwardLogic myAward) {
-	    	//Do we need to get the Id also???
 	    	//this.idAward= myAward.getId();
 	        this.type=myAward.getType();
 	        this.awardValue = myAward.getAwardValue();  

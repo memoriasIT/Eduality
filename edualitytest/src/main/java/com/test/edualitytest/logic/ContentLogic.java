@@ -24,14 +24,14 @@ public class ContentLogic {
 
 	private Integer idUser;
 	private boolean hasAward;
-	private ArrayList<AwardLogic>listAwards;
+	private List<AwardLogic>listAwards;
 	
 	@Autowired
 	private static ContentService cs;
 
 	//TODO WE NEED TO TEST THAT WHEN WE CREATE A CONTENT WITH hasAward true then listAward.getNumberAwards must be > 0 | CREATE TEST
 	
-	public ContentLogic createContent(Integer idContent, String title, String body, String topic,Integer votes,Date uploadDate,Integer idUser,boolean hasAward) {
+	public static ContentLogic createContent(Integer idContent, String title, String body, String topic,Integer votes,Date uploadDate,Integer idUser,boolean hasAward) {
 		if(title.length()<=0 || title.length()>50) {
 			throw new RuntimeException("Invalid title length");
 		}else if(body.length()<=0 || body.length()>1000) {
@@ -62,7 +62,7 @@ public class ContentLogic {
 	}
 	
 	
-	public ContentLogic createContentDatabase(int idContent, String title, String body, String topic,int votes,Date uploadDate,int idUser,boolean hasAward, ArrayList<AwardLogic> listAwards) {
+	public static ContentLogic createContentDatabase(int idContent, String title, String body, String topic,int votes,Date uploadDate,int idUser,boolean hasAward, List<AwardLogic> listAwards) {
 		if(title.length()<=0 || title.length()>50) {
 			throw new RuntimeException("Invalid title length");
 		}else if(body.length()<=0 || body.length()>1000) {
@@ -75,7 +75,7 @@ public class ContentLogic {
 	}
 	
 	
-	public ContentLogic(int idContent,String title, String body, String topicName,int votes,Date uploadDate,Integer idUser,boolean hasAward, ArrayList<AwardLogic> listAwards) {
+	public ContentLogic(int idContent,String title, String body, String topicName,int votes,Date uploadDate,Integer idUser,boolean hasAward, List<AwardLogic> listAwards) {
 		this.idContent=idContent;
 		this.title=title;
 		this.body=body;
@@ -90,9 +90,7 @@ public class ContentLogic {
 		this.listAwards=listAwards;
 	}
 	
-	
-	
-	
+
 	
 	public String getTopic() {
 		return topic;
@@ -161,7 +159,7 @@ public class ContentLogic {
 		return idUser;
 	}
 
-	public ArrayList<AwardLogic> getListAwards() {
+	public List<AwardLogic> getListAwards() {
 		return listAwards;
 	}
 

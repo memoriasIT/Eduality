@@ -38,20 +38,28 @@ public class TimeReputationUpdater extends Thread {
 		    	
 		    	List<Content> contents = cs.getAll();
 		    	ContentLogic cl;
+		    	List<AwardLogic> myListAwardsLogic=new ArrayList<>();
 		    	
 		    	for(int i = 0; i <= contents.size(); i++) {
 		    		
-		    		  cl = new ContentLogic(contents.get(i).getContentId(), contents.get(i).getTitle(), contents.get(i).getBody(), contents.get(i).getTopic().getName(),contents.get(i).getUpvotes(),contents.get(i).getUploadDate(),contents.get(i).getUser().getIdUser(),contents.get(i).isHasAward());
-		    		  eduality.fairAlgorithm(cl);
-		    		  
+		    		myListAwardsLogic = AwardLogic.convertListOfAward(contents.get(i).getAwardList());
+		    		cl = ContentLogic.createContentDatabase((Integer)contents.get(i).getContentId(),
+		    				  contents.get(i).getTitle(), contents.get(i).getBody(),
+		    				  contents.get(i).getTopic().getName(),(Integer)contents.get(i).getUpvotes(),
+		    				  contents.get(i).getUploadDate(),(Integer)contents.get(i).getUser().getIdUser(),
+		    				  contents.get(i).isHasAward(),myListAwardsLogic);
 		    		
+		    		//Applying the fairAlgorithm to every content we just fetched from the database
+		    		//Inside the fair algorithm we update that content to the database
+		    		eduality.fairAlgorithm(cl);
+
 		    	}
 		    	
 		    	
 		    	//---------------------------------------------------------------------
 		    	
-		    	//Applying the fairAlgorithm to every content we just fetched from the database
 		    	
+		    	/**
 		    	//first condition works when the list is of only one item!!!
 				 while(myAggregateContent.count()==1 || allContent.hasNextItem()){
 				 	//for every content, we have to apply the fairAlgorithm(content);
@@ -59,7 +67,7 @@ public class TimeReputationUpdater extends Thread {
 				 	eduality.fairAlgorithm((ContentLogic) allContent.currentItem());
 				 	allContent.nextItem();
 				 }
-				 
+				 **/
 				
 		    	
 		    }
