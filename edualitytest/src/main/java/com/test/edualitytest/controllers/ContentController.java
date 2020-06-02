@@ -97,7 +97,7 @@ public class ContentController {
 		c.setHasAward(false);
 		cs.save(c);
 		
-		return "redirect:/content";
+		return "redirect:/content/index";
 	}
 	
 	@RequestMapping("content/view/{contentId}")
