@@ -20,13 +20,11 @@
 
 _A community driven page sorted by a fair algorithm._
 
-(Introduction to Software Engineering, Project)
+<h3> Phylosophy </h3>
 
+“In modern society, certain subjects have been heavily controlled by a little group of people who decide what should and should not be popular. Eduality allows people to promote themselves and get the recognition that they deserve, to the extent of even getting the chance of working with brands we have agreements with.”
 
-
-- Team Name: Eduality S.A
-
-- Team members and roles: 
+<h3> Contributors </h3>
 
 memoriasIT: Programming and Testing
 
@@ -40,15 +38,30 @@ Andreea Nuță: Documentation and testing
 
 Liana Șacu: Design and requirements
 
-- Project title: Eduality
+<h3> FAQ </h3>
 
-- Project Description: Eduality is a platform where content creators pick a domain (from a wide variety of categories like science, photography, sports) and share papers, videos, podcasts in order to get points/recognition from other users for their content. The content is sorted by a fair algorithm. For our top users we also provide "rewards" like the oportunity to be published in a real magazine, that way we motivate users to post content.
+Q: Should the user login to see the content?
+A: You should have an account in order to evaluate the content, it’s not needed to see the content.
 
+Q: Should someone review the content user post?
+A: No moderation needed, there is a mechanism to report.
 
-Resources:
-THREAD POOLED SERVER:
-https://github.com/lukebro/httputil/blob/master/lib/src/com/github/lukebro/httputil/HttpRequest.java
-http://tutorials.jenkov.com/java-multithreaded-servers/thread-pooled-server.html
+Q: Should users lose points if they post not useful content?
+A: If there is a violation you should lose point. If content is not useful you will not be punished.
 
-SESSION MANAGEMENT:
-https://www.studytonight.com/servlet/storing-session-using-cookies.php
+Q: How should we classificate the content?
+A: You should be rewarded if your posts are popular.
+
+Q: Do all users have equal rights? Or some have more influence/power?
+A: Some experts start with more reputation (provide credentials of their knowledge, 
+then we should authenticate it with transparent mechanism). A normal user can become an expert too. 
+Experts can have more power with voting (something reasonable).
+
+Q: Does a report system exist? If so, how does it work?
+A: Fill a form with details, source to demonstrate violation, etc
+
+Q: Does a bot manage the reports or actual workers?
+A: mixed thing, some automatic process (filters) should report the same thing (or similar) and then present to some moderator
+
+Q: What is the most important thing in this application for you?
+A: Fairness.
