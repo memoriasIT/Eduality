@@ -24,19 +24,22 @@ _A community driven page sorted by a fair algorithm._
 
 _“In modern society, certain subjects have been heavily controlled by a little group of people who decide what should and should not be popular. Eduality allows people to promote themselves and get the recognition that they deserve, to the extent of even getting the chance of working with brands we have agreements with.”_
 
+
+
+<h3> Screenshots </h3>
+
+<p align="center"><img width="500px" src="https://raw.githubusercontent.com/memoriasIT/Eduality/master/docs/static/img/index.jpeg"></p>
+<p align="center">
+
+
 <h3> Contributors </h3>
 
-memoriasIT: Programming and Testing
-
-Álvaro Lloret López: Leader Project Management and requirements
-
-Antonio Jesús Canales Delgado: Technical leader and Database  
-
-Manuel Leiva Gómez: Research and Programming
-
-Andreea Nuță: Documentation and testing
-
-Liana Șacu: Design and requirements
+<b>memoriasIT:</b> Programming and Testing<br>
+<b>Álvaro Lloret López:</b> Leader Project Management and requirements<br>
+<b>Antonio Jesús Canales Delgado:</b> Technical leader and Database  <br>
+<b>Manuel Leiva Gómez:</b> Research and Programming<br>
+<b>Andreea Nuță:</b> Documentation and testing<br>
+<b>Liana Șacu:</b> Design and requirements<br>
 
 <h3> FAQ </h3>
 
