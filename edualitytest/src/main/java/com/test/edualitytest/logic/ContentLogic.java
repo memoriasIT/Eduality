@@ -31,7 +31,8 @@ public class ContentLogic {
 
 	//TODO WE NEED TO TEST THAT WHEN WE CREATE A CONTENT WITH hasAward true then listAward.getNumberAwards must be > 0 | CREATE TEST
 	
-	public static ContentLogic createContent(Integer idContent, String title, String body, String topic,Integer votes,Date uploadDate,Integer idUser,boolean hasAward) {
+	public static ContentLogic createContent(Integer idContent, String title, String body, 
+			String topic,Integer votes,Date uploadDate,Integer idUser,boolean hasAward) {
 		if(title.length()<=0 || title.length()>50) {
 			throw new RuntimeException("Invalid title length");
 		}else if(body.length()<=0 || body.length()>1000) {
